@@ -1,65 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compound Interest Calculator</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="2djkcgWH8z42G_CwcveATUQpw7xK6psUnhU7SGZX3x8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compound Interest Calculator - Calculate compound interest and see yearly breakdown">
+  <meta name="keywords" content="Compound Interest, Interest Calculator, Compound Interest Calculator, Financial Calculator">
+  <meta name="author" content="Your Name">
+  <meta name="robots" content="index, follow"> <!-- This allows search engines to index and follow your pages -->
+  <title>Compound Interest Calculator</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Linking to CSS file -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Include the external JavaScript library for exporting to Excel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
 </head>
+
 <body>
-    <div class="container">
-        <h1 class="main-heading">Compound Interest Calculator</h1>
+  <div class="container">
+    <h1>Compound Interest Calculator</h1>
 
-        <div class="form-group">
-            <label for="currency">Currency:</label>
-            <select id="currency">
-                <option value="INR">INR</option>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="GBP">GBP</option>
-                <option value="AUD">AUD</option>
-                <option value="CAD">CAD</option>
-            </select>
-        </div>
+    <!-- Form for taking user input -->
+    <form id="calculator-form">
+      <div class="form-group">
+        <label for="amount">Initial Amount</label>
+        <input type="number" id="amount" placeholder="Enter initial amount" required>
+      </div>
 
-        <div class="form-group">
-            <label for="principal">Initial Amount:</label>
-            <input type="number" id="principal" placeholder="Enter initial amount">
-        </div>
+      <div class="form-group">
+        <label for="rate">Interest Rate (%)</label>
+        <input type="number" id="rate" placeholder="Enter interest rate" required>
+      </div>
 
-        <div class="form-group">
-            <label for="rate">Interest Rate (%):</label>
-            <input type="number" id="rate" placeholder="Enter interest rate">
-        </div>
+      <div class="form-group">
+        <label for="time">Time Period (Years)</label>
+        <input type="number" id="time" placeholder="Enter time in years" required>
+      </div>
 
-        <div class="form-group">
-            <label for="time">Time Period (Years):</label>
-            <input type="number" id="time" placeholder="Enter time period">
-        </div>
+      <div class="form-group">
+        <label for="currency">Select Currency</label>
+        <select id="currency">
+          <option value="INR">₹ INR</option>
+          <option value="USD">$ USD</option>
+          <option value="EUR">€ EUR</option>
+          <option value="GBP">£ GBP</option>
+          <!-- Add other currencies as needed -->
+        </select>
+      </div>
 
-        <div class="form-group">
-            <label for="unit">Select Time Unit:</label>
-            <select id="unit">
-                <option value="months">12 months per year</option>
-                <option value="quarters">Quarter per year</option>
-                <option value="semi-annual">6 months per year</option>
-                <option value="years" selected>Year</option> <!-- Default set to "Year" -->
-            </select>
-        </div>
+      <div class="form-group">
+        <label for="timeUnit">Select Time Unit</label>
+        <select id="timeUnit">
+          <option value="yearly">Yearly</option>
+          <option value="semiannually">Semi-Annually (6 months)</option>
+          <option value="quarterly">Quarterly (3 months)</option>
+          <option value="monthly">Monthly</option>
+        </select>
+      </div>
 
-        <button onclick="calculateCompoundInterest()">Calculate</button>
-        <button onclick="exportToExcel()">Export to Excel</button>
+      <div class="form-group">
+        <button type="button" onclick="calculateCompoundInterest()">Calculate</button>
+        <button type="button" onclick="exportToExcel()">Export to Excel</button>
+      </div>
+    </form>
 
-        <div class="result" id="result">
-            <!-- Results will be shown here -->
-        </div>
-
-        <div class="breakdown" id="breakdown">
-            <!-- Year-by-year breakdown will be displayed here -->
-        </div>
+    <!-- Display Results -->
+    <div id="results">
+      <h2>Results</h2>
+      <table id="resultsTable" style="width: 100%; text-align: left;">
+        <!-- The results will be dynamically inserted here -->
+      </table>
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
