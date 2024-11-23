@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-heading">Compound Interest Calculator</h1>
+
+        <div class="form-group">
+            <label for="currency">Currency:</label>
+            <select id="currency">
+                <option value="INR">INR</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="AUD">AUD</option>
+                <option value="CAD">CAD</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="principal">Initial Amount:</label>
+            <input type="number" id="principal" placeholder="Enter initial amount">
+        </div>
+
+        <div class="form-group">
+            <label for="rate">Interest Rate (%):</label>
+            <input type="number" id="rate" placeholder="Enter interest rate">
+        </div>
+
+        <div class="form-group">
+            <label for="time">Time Period (Years):</label>
+            <input type="number" id="time" placeholder="Enter time period">
+        </div>
+
+        <div class="form-group">
+            <label for="unit">Select Time Unit:</label>
+            <select id="unit">
+                <option value="months">12 months per year</option>
+                <option value="quarters">Quarter per year</option>
+                <option value="semi-annual">6 months per year</option>
+                <option value="years" selected>Year</option> <!-- Default set to "Year" -->
+            </select>
+        </div>
+
+        <button onclick="calculateCompoundInterest()">Calculate</button>
+        <button onclick="exportToExcel()">Export to Excel</button>
+
+        <div class="result" id="result">
+            <!-- Results will be shown here -->
+        </div>
+
+        <div class="breakdown" id="breakdown">
+            <!-- Year-by-year breakdown will be displayed here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
